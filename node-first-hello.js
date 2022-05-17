@@ -29,17 +29,52 @@
 // console.log('it is a extention name form path',path.extname(test_path));
 
 // fs module
-const fs = require('fs');
-// read file with out sync
-fs.readFile('./images.json','utf8',function (error,data) {
-	if(error === null){
-		console.log(data);
-	} else {
-		console.log(error);
-	}
-});
+// const fs = require('fs');
+// // read file with out sync
+// fs.readFile('./images.json','utf8',function (error,data) {
+// 	if(error === null){
+// 		console.log(data);
+// 	} else {
+// 		console.log(error);
+// 	}
+// });
 
-console.log('code running');  
-// read file with synce
-const data = fs.readFileSync('images.json');
-console.log('this is in the file - with sync',data.toString());
+// // read file with sync
+// const data = fs.readFileSync('images.json');
+// console.log('this is in the file - with sync',data.toString());
+
+// // write file async
+// fs.writeFile('doc.txt','hello hiiiii i am naruto 😁',(error,res) => {
+// 	console.log('file is writed as in doc.txt, file error is '+error+' and response is '+res+'');
+// });
+// console.log('code running');  
+
+// // write file with sync
+
+// fs.writeFileSync('doc.txt','Big fan of anime');
+
+// import type 
+
+// comman js import
+// const animeList = require('./module-type');
+// console.log('this is import using comman js module ',animeList());
+// es6 module import 
+// import {animeList} from './module-type.js'
+// console.log('this is es6 import type',animeList());
+//es6 import alies 
+
+// import {animeList as listAnime } from './module-type.js'
+
+// console.log('this is es6 import as alies listAnime',listAnime());
+
+// es6 import default
+
+// import myAnimeList from './module-type.js';
+// console.log('is is default function ',myAnimeList());
+
+// es6 module all
+import * as anime from './module-type.js';
+
+console.log('This is class of all module-type es6  ',anime);
+console.log('the default function is ',anime.default());
+console.log('other function is animeList',anime.animeList());
