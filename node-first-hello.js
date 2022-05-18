@@ -29,17 +29,33 @@
 // console.log('it is a extention name form path',path.extname(test_path));
 
 // fs module
-const fs = require('fs');
-// read file with out sync
-fs.readFile('./images.json','utf8',function (error,data) {
-	if(error === null){
-		console.log(data);
-	} else {
-		console.log(error);
-	}
-});
+// const fs = require('fs');
+// // read file with out sync
+// fs.readFile('./images.json','utf8',function (error,data) {
+// 	if(error === null){
+// 		console.log(data);
+// 	} else {
+// 		console.log(error);
+// 	}
+// });
+// // read file with synce
+// const data = fs.readFileSync('images.json');
+// console.log('this is in the file - with sync',data.toString());
 
-console.log('code running');  
-// read file with synce
-const data = fs.readFileSync('images.json');
-console.log('this is in the file - with sync',data.toString());
+
+// //  write file with async
+ 
+// fs.writeFile('images.json','Hello world this is data',() => {
+// 	console.log('write done');
+// })
+// // file write with sync 
+// const fileStatus = fs.writeFileSync('images.json','hello this is data after writting the next line will run')
+// console.log('code running',fileStatus);
+
+
+// comman js import 
+//const todayNews = require('./es6-module');
+import {todayNews} form './es6-module';
+// es6 imports
+// call function form another folder 
+todayNews();
