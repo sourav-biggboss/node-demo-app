@@ -6,6 +6,7 @@
   "version": "1.0.0",
   "description": "demo",
   "main": "node-first-hello.js",
+  "type": "module",
   "dependencies": {
     "abbrev": "^1.1.1",
     "ansi-align": "^3.0.1",
