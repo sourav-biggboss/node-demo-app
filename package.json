@@ -6,7 +6,6 @@
   "version": "1.0.0",
   "description": "demo",
   "main": "node-first-hello.js",
-  "type": "module",
   "dependencies": {
     "abbrev": "^1.1.1",
     "ansi-align": "^3.0.1",
@@ -39,6 +38,7 @@
     "emoji-regex": "^8.0.0",
     "end-of-stream": "^1.4.4",
     "escape-goat": "^2.1.1",
+    "express": "^4.18.1",
     "fill-range": "^7.0.1",
     "get-stream": "^4.1.0",
     "glob-parent": "^5.1.2",

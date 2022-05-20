@@ -38,29 +38,6 @@
 // 		console.log(error);
 // 	}
 // });
-<<<<<<< HEAD
-// // read file with synce
-// const data = fs.readFileSync('images.json');
-// console.log('this is in the file - with sync',data.toString());
-
-
-// //  write file with async
- 
-// fs.writeFile('images.json','Hello world this is data',() => {
-// 	console.log('write done');
-// })
-// // file write with sync 
-// const fileStatus = fs.writeFileSync('images.json','hello this is data after writting the next line will run')
-// console.log('code running',fileStatus);
-
-
-// comman js import 
-//const todayNews = require('./es6-module');
-import {todayNews} form './es6-module';
-// es6 imports
-// call function form another folder 
-todayNews();
-=======
 
 // // read file with sync
 // const data = fs.readFileSync('images.json');
@@ -96,9 +73,67 @@ todayNews();
 // console.log('is is default function ',myAnimeList());
 
 // es6 module all
-import * as anime from './module-type.js';
+// import * as anime from './module-type.js';
 
-console.log('This is class of all module-type es6  ',anime);
-console.log('the default function is ',anime.default());
-console.log('other function is animeList',anime.animeList());
->>>>>>> 4b4b5f990e1d655f5ff2cc0a8ebdc1c32ef1421f
+// console.log('This is class of all module-type es6  ',anime);
+// console.log('the default function is ',anime.default());
+// console.log('other function is animeList',anime.animeList());
+
+// url module
+
+// const url = require('url');
+
+// const websiteUrl = new URL('http://google');
+// websiteUrl.search = '?w=90&q=anime';
+// websiteUrl.port = 8080;
+// websiteUrl.hash = '#info';
+// websiteUrl.pathname = '/aot/anime';
+// console.log('this is url ',websiteUrl.href);
+// console.log(websiteUrl);
+
+// event module
+
+// const EventEmitter = require('events');
+
+// class MsgEventEmitter extends EventEmitter {};
+
+// MsgEventEmitter.on('full',()=>{
+//     console.log('This is fire form event');
+// })
+// // MsgEventEmitter.emit('full');
+// console.log('code id running..');
+// http module
+
+// const http = require('http');
+// const port = process.env.PORT || 3000; 
+// const server = http.createServer((req,res)=>{
+//     req.statusCode = 200;
+//     res.setHeader('Contant-Type','text/html');
+//     if (req.url == '/') {
+//         res.end(' <h1> Index Page</h1>');
+//     } else if  (req.url == '/about'){
+//         res.end(' <h1> hey this is about page</h1>');
+//     }
+//      else {
+//         req.statusCode = 404;
+//         res.end(' <h1> 404 Page not found</h1>');
+//     }
+// });
+
+// server.listen(port,()=>{
+//     console.log('server is running on '+port);
+// });
+
+
+// using express famework
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.get('/about',(req,res) => {
+    res.send('This is About Page');
+})
