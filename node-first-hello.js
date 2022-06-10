@@ -93,15 +93,15 @@
 
 // event module
 
-// const EventEmitter = require('events');
+const EventEmitter = require('events');
 
-// class MsgEventEmitter extends EventEmitter {};
+class MsgEventEmitter extends EventEmitter {};
 
-// MsgEventEmitter.on('full',()=>{
-//     console.log('This is fire form event');
-// })
-// // MsgEventEmitter.emit('full');
-// console.log('code id running..');
+MsgEventEmitter.on('full',()=>{
+    console.log('This is fire form event');
+})
+// MsgEventEmitter.emit('full');
+console.log('code id running..');
 // http module
 
 // const http = require('http');
@@ -126,14 +126,14 @@
 
 
 // using express famework
-const express = require('express')
-const app = express()
-const port = 3000
+// const express = require('express')
+// const app = express()
+// const port = 3000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+// app.get('/', (req, res) => {
+//   res.send('Hello World!')
+// })
 
-app.get('/about',(req,res) => {
-    res.send('This is About Page');
-})
+// app.get('/about',(req,res) => {
+//     res.send('This is About Page');
+// })
