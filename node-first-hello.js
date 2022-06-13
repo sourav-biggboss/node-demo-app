@@ -38,29 +38,6 @@
 // 		console.log(error);
 // 	}
 // });
-<<<<<<< HEAD
-// // read file with synce
-// const data = fs.readFileSync('images.json');
-// console.log('this is in the file - with sync',data.toString());
-
-
-// //  write file with async
- 
-// fs.writeFile('images.json','Hello world this is data',() => {
-// 	console.log('write done');
-// })
-// // file write with sync 
-// const fileStatus = fs.writeFileSync('images.json','hello this is data after writting the next line will run')
-// console.log('code running',fileStatus);
-
-
-// comman js import 
-//const todayNews = require('./es6-module');
-import {todayNews} form './es6-module';
-// es6 imports
-// call function form another folder 
-todayNews();
-=======
 
 // // read file with sync
 // const data = fs.readFileSync('images.json');
@@ -84,7 +61,7 @@ todayNews();
 // es6 module import 
 // import {animeList} from './module-type.js'
 // console.log('this is es6 import type',animeList());
-//es6 import alies 
+// es6 import alies 
 
 // import {animeList as listAnime } from './module-type.js'
 
@@ -96,9 +73,53 @@ todayNews();
 // console.log('is is default function ',myAnimeList());
 
 // es6 module all
-import * as anime from './module-type.js';
+// import * as anime from './module-type.js';
 
-console.log('This is class of all module-type es6  ',anime);
-console.log('the default function is ',anime.default());
-console.log('other function is animeList',anime.animeList());
->>>>>>> 4b4b5f990e1d655f5ff2cc0a8ebdc1c32ef1421f
+// console.log('This is class of all module-type es6  ',anime);
+// console.log('the default function is ',anime.default());
+// console.log('other function is animeList',anime.animeList());
+
+// url module
+
+// const url = require('node:url');
+
+// const urlGoogle = new URL('https://google/');
+// urlGoogle.pathname = 'search/';
+// urlGoogle.search ='?q=test';
+// urlGoogle.hash = '#1';
+// urlGoogle.port = 8080;
+
+// console.log('url is '+urlGoogle.href, urlGoogle);
+
+// event Emitter module
+
+// const EventEmitter  = require('events');
+ 
+// class MyEventEmitter extends EventEmitter {};
+// const myEventEmitter =  new MyEventEmitter;
+ 
+// myEventEmitter.on('notifyMessage' , () => {
+//	 console.log('EventEmitter Working Fine');
+// });
+ 
+// console.log('code is working');
+// myEventEmitter.emit('notifyMessage');
+ 
+// http module
+
+const http = require('http');
+const port = process.env.PORT || 8005;
+const server = http.createServer((req,res)=>{
+	req.statusCode = 200;
+	if(req.url = '/'){
+	res.setHeader('Content-Type','text/html');
+	res.end('Hii<h1>dsa</h1>url is'+req.url);
+	} else {
+		res.end('404 in'+req.url);
+	}
+	
+});
+
+server.listen(port,() => {
+	console.log('server is running on '+port);
+})
