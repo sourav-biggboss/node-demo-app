@@ -81,45 +81,59 @@
 
 // url module
 
-// const url = require('node:url');
+// const url = require('url');
 
-// const urlGoogle = new URL('https://google/');
-// urlGoogle.pathname = 'search/';
-// urlGoogle.search ='?q=test';
-// urlGoogle.hash = '#1';
-// urlGoogle.port = 8080;
+// const websiteUrl = new URL('http://google');
+// websiteUrl.search = '?w=90&q=anime';
+// websiteUrl.port = 8080;
+// websiteUrl.hash = '#info';
+// websiteUrl.pathname = '/aot/anime';
+// console.log('this is url ',websiteUrl.href);
+// console.log(websiteUrl);
 
-// console.log('url is '+urlGoogle.href, urlGoogle);
+// event module
 
-// event Emitter module
+// const EventEmitter = require('events');
 
-// const EventEmitter  = require('events');
- 
-// class MyEventEmitter extends EventEmitter {};
-// const myEventEmitter =  new MyEventEmitter;
- 
-// myEventEmitter.on('notifyMessage' , () => {
-//	 console.log('EventEmitter Working Fine');
-// });
- 
-// console.log('code is working');
-// myEventEmitter.emit('notifyMessage');
- 
+// class MsgEventEmitter extends EventEmitter {};
+
+// MsgEventEmitter.on('full',()=>{
+//     console.log('This is fire form event');
+// })
+// // MsgEventEmitter.emit('full');
+// console.log('code id running..');
 // http module
 
-const http = require('http');
-const port = process.env.PORT || 8005;
-const server = http.createServer((req,res)=>{
-	req.statusCode = 200;
-	if(req.url = '/'){
-	res.setHeader('Content-Type','text/html');
-	res.end('Hii<h1>dsa</h1>url is'+req.url);
-	} else {
-		res.end('404 in'+req.url);
-	}
-	
-});
+// const http = require('http');
+// const port = process.env.PORT || 3000; 
+// const server = http.createServer((req,res)=>{
+//     req.statusCode = 200;
+//     res.setHeader('Contant-Type','text/html');
+//     if (req.url == '/') {
+//         res.end(' <h1> Index Page</h1>');
+//     } else if  (req.url == '/about'){
+//         res.end(' <h1> hey this is about page</h1>');
+//     }
+//      else {
+//         req.statusCode = 404;
+//         res.end(' <h1> 404 Page not found</h1>');
+//     }
+// });
 
-server.listen(port,() => {
-	console.log('server is running on '+port);
+// server.listen(port,()=>{
+//     console.log('server is running on '+port);
+// });
+
+
+// using express famework
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.get('/about',(req,res) => {
+    res.send('This is About Page');
 })
