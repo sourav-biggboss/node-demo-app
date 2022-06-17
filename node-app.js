@@ -1,17 +1,21 @@
-//   http o\module 
-
+// url module
 const http = require('http');
 const url = require('url');
-const server  = http.createServer(function (request,response) {
-    response.writeHead(200,{
-        'Contant-Type':'text/html'      // Header type
+const fs = require('fs');
+http.createServer(function (httpRequest,Httpresponse) {
+    Httpresponse.writeHead(200,{'Contant-Type':'text/html'});
+    let appUrl = "."+url.parse(httpRequest.url,true).pathname;
+    console.log(appUrl);
+    fs.readFile(appUrl,(error,responseTempate)=>{
+        if (error) {
+            Httpresponse.writeHead(404,{'Contant-Type':'text/html'});
+            Httpresponse.write("File Not Found");
+        } else {
+            Httpresponse.write(responseTempate);
+        }
+        Httpresponse.end();
     });
-    const response_query = url.parse(request.url,true).query;
-    response.write('<h1> '+response_query.year+' , '+response_query.month+'</h1>');
-    response.end();
-                        
-}).listen(8005,function () {
-    console.log('Server is Runnning');
-})
-
+}).listen(8005,()=>{
+    console.log('Server is Running');
+});
 
