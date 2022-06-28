@@ -1,1 +1,17 @@
-Hello world this is data writting the next line will run
+{
+    "name" : "sourav",
+    "age" : 34,
+    "addess" : "India",
+    "$schema": {
+        "type": "htm"
+    },
+    "point" : [
+        2,
+        3,4
+    ],
+    "cars" : [
+        "volvo","bmw"
+    ]
+    ,
+    "encrypt" : true
+}
