@@ -1,0 +1,63 @@
+<h1>Bill Break Down</h1>
+<br>
+<span><b>User Id :</b></span>
+<br>
+<br>
+<span><b>Ar opening :</b></span>
+<br>
+<span><b>Ar balance :</b></span>
+<br><br>
+<table border="1" bgcolor="#f0f8ff">
+    <tr>
+        <td>Invoice Id</td>
+        <td>User Id</td>
+        <td>Payment Status</td>
+        <td>
+            <table border="1" width="100%">
+                <tr>
+                    <td>Fee Particular</td>
+                    <td>Amount</td>
+                </tr>
+            </table>
+        </td>
+        <td>payment Amount</td>
+        <td>
+            <table border="1" width="100%">
+                <tr>
+                    <td>Collection Amount</td>
+                    <td>Extra Amount Paid</td>
+                    <td>Collection Method</td>
+                    <td>Collection Date</td>
+                </tr>
+            </table>
+        </td>
+        <td>Paid Amount</td>
+        <td>Created Date</td>
+    </tr>
+    <tr>
+        <td>{{ar_invoice_headers.id}}</td>
+        <td>{{ar_invoice_headers.paymentStudent}}</td>
+        <td>{{ar_invoice_headers.paymentStatus}}</td>
+        <td>
+            <table border="1" width="100%">
+                <tr>
+                    <td>{{ar_invoice_lines.fee_particular}}</td>
+                    <td>{{ar_invoice_lines.amount}}</td>
+                </tr>
+            </table>
+        </td>
+        <td>{{ar_invoice_headers.paymentAmount}}</td>
+        <td>
+            <table border="1" width="100%">
+                <tr>
+                    <td>{{ar_payments.collectionAmount}}</td>
+                    <td>{{ar_payments.extra_amount_paid}}</td>
+                    <td>{{ar_payments.collectionMethod}}</td>
+                    <td>{{collectionDate}}</td>
+                </tr>
+            </table>
+        </td>
+        <td>{{ar_invoice_headers.paidAmount}}</td>
+        <td>{{ar_invoice_headers.created_date}}</td>
+    </tr>
+</table>

@@ -40,6 +40,7 @@
     "escape-goat": "^2.1.1",
     "express": "^4.18.1",
     "fill-range": "^7.0.1",
+    "formidable": "^2.0.1",
     "get-stream": "^4.1.0",
     "glob-parent": "^5.1.2",
     "global-dirs": "^3.0.0",
