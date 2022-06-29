@@ -11,14 +11,16 @@ You have to use formidable
 npm install formidable
 
 -- code--
+```
 const formidable = require('formidable');
-
-### create new estanse from formidable from method IncomingForm()
-### IncomingForm has parse method which contanes a call back function ,require params are error,fields,files
-### parse is call when any file get uploading
-### file upload temp dir : filepath
-### file name of uploads propety is originalFilename;
---- code--
+```
+create new estanse from formidable from method IncomingForm()
+IncomingForm has parse method which contanes a call back function ,require params are error,fields,files
+parse is call when any file get uploading
+file upload temp dir : filepath
+file name of uploads propety is originalFilename;
+- node
+```
 incomingForm = formidable.IncomingForm();
 // call when upload
 incomingForm.parse(Httprequest,function (error,fields,files){
@@ -31,15 +33,16 @@ moving file temp to disk
      console.log('file is uploaded sussefully'); 
  })
 })
---- html--
-
+````
+- html
+```
 <form method="post" action='/' enctype="multipart/form-data">>
 
 <input name="filename" type="file" />
 <button type="submit" name="submit">
 
 </form>
-
+```
 # Send Mail 
 ## npm install nodemailer
 for sending mail module require nodemailer
@@ -62,7 +65,7 @@ then call sendMail method from nodemailer , which has first params of an object
 
 and second param is a call back function has error , and info
 
-## ----code---
+```
 
 const nodemailer = require('nodemailer');
 
@@ -86,31 +89,32 @@ const sendMail = transport.sendMail(configMail,function (error,info){
 
     console.log(info.reposonse);
 });
-
+```
 ## mysql
 for connecting mysql model require mysql driver
 so, insatll mysql module download from
 npm install mysql
 use,
---- code --
+```
 const mysql  = require('mysql');
+```
 ### create mysql connect 
 first create a connection for that 
---- code --
+```
 const conn = mysql.createConnection({
     host:"localhost",
     user:"root",
     password: "tete"
 });
-
+```
 Then connect it,
---- code ---
+```
 conn.connect((error) => {
     if(error) thow error
 
     console.log('DB conneted successfully');
 });
-
+```
 ## create database 
 for that use conn.query
  - in query method the first param is my sql query
@@ -119,9 +123,7 @@ for that use conn.query
     - call function have first param is error
     - second param is fields
     - third param is result
-
---- code ---
-
+```
 conn.connect((error) => {
     if (error) throw error
     conn.query('',(errorQuery,fields,result) => {
@@ -130,3 +132,4 @@ conn.connect((error) => {
         }
     });
 });
+```
