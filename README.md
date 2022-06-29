@@ -133,3 +133,20 @@ conn.connect((error) => {
     });
 });
 ```
+
+## insert values to table
+for inserting in table, use query second param [value], conn.query(sqlQuery,[value],function (error,fields,result){})
+- for getting last inserted id use result.insertId
+```
+conn.connect(function (error){
+	if (error) throw error ;
+	var sqlQuery = '';
+	var values = [
+	
+	];
+	conn.query(sqlQuery,[values],function (errorSql,fields,result){
+		if (errorSql) throw errorSql ;
+		console.log('last inserted ID is '+result.insertId,result.affectedRow);
+	});
+});
+```

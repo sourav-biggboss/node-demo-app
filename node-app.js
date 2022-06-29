@@ -118,6 +118,35 @@ http.createServer(function (httpRequest,Httpresponse) {
         });
 
     }
+	// insert into tabe
+	else if(httpRequest.url = 'insert-table-values'){
+		const conn = mysql.createConnection({
+			host:'localhost',
+			user:'root',
+			password:'',
+			database:'test'
+		});
+		
+		conn.connect((errorMySqlConn) => {
+			if (errorMySqlConn){
+				Httpresponse.write('conn failed');
+				endResponse.emit('sendHttpResponse');
+			} else {
+				var values = [
+				'test','1','inserting'
+				]
+				conn.query('INSERT INTO users VALUES ?',[values],(mySqlQueryError,fields,result) => {
+					if (mySqlQueryError) {
+						Httpresponse.write('sql failed'+mySqlQueryError.sqlMessage);
+						endResponse.emit('sendHttpResponse');
+					} else {
+						Httpresponse.write('insert succesfully last insert id is'+result.insertId+' affexted'+result.affectedRow);
+						endResponse.emit('sendHttpResponse');
+					}
+				})
+			}
+		})
+	}
     else {
         appUrl="."+appUrl;
         console.log("file "+appUrl);
