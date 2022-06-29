@@ -126,7 +126,7 @@ for that use conn.query
 ```
 conn.connect((error) => {
     if (error) throw error
-    conn.query('',(errorQuery,fields,result) => {
+    conn.query('',(errorQuery,result,fields) => {
         if(!errorQuery){
             console.log('Query has been runned affected rows are'+result.affectedRow);
         }
@@ -135,18 +135,30 @@ conn.connect((error) => {
 ```
 
 ## insert values to table
-for inserting in table, use query second param [value], conn.query(sqlQuery,[value],function (error,fields,result){})
+for inserting in table, use query second param [value], conn.query(sqlQuery,[value],function (error,result){})
 - for getting last inserted id use result.insertId
 ```
 conn.connect(function (error){
 	if (error) throw error ;
 	var sqlQuery = '';
 	var values = [
-	
+	[],
 	];
-	conn.query(sqlQuery,[values],function (errorSql,fields,result){
+	conn.query(sqlQuery,[values],function (errorSql,result){
 		if (errorSql) throw errorSql ;
 		console.log('last inserted ID is '+result.insertId,result.affectedRow);
 	});
+});
+```
+### select
+for that you just has the oject of result 
+for example conn.query(query,(error,result,fields)=>{console.log(result);})
+```
+conn.connect((connErr)=>{
+    if (connErr) throw connErr;
+    conn.query('SELECT * FROM `players`',(queryErr,result,fields)=>{
+        // fetch data from table DB
+        console.log(result);
+    });
 });
 ```

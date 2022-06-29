@@ -119,7 +119,7 @@ http.createServer(function (httpRequest,Httpresponse) {
 
     }
 	// insert into tabe
-	else if(httpRequest.url = 'insert-table-values'){
+	else if(httpRequest.url == '/insert-table-values'){
 		const conn = mysql.createConnection({
 			host:'localhost',
 			user:'root',
@@ -133,20 +133,43 @@ http.createServer(function (httpRequest,Httpresponse) {
 				endResponse.emit('sendHttpResponse');
 			} else {
 				var values = [
-				'test','1','inserting'
+				['sourav','maity','02-06-1998','Jamshedpur','india']
 				]
-				conn.query('INSERT INTO users VALUES ?',[values],(mySqlQueryError,fields,result) => {
+				conn.query('INSERT INTO `plays` (`First_Name`, `Last_Name`, `Date_Of_Birth`, `Place_Of_Birth`, `Country`)VALUES ?',[values],(mySqlQueryError,result) => {
 					if (mySqlQueryError) {
 						Httpresponse.write('sql failed'+mySqlQueryError.sqlMessage);
 						endResponse.emit('sendHttpResponse');
 					} else {
-						Httpresponse.write('insert succesfully last insert id is'+result.insertId+' affexted'+result.affectedRow);
+						Httpresponse.write("Number of records inserted: " + result.affectedRows+'last inserted ID is '+result.insertId);
 						endResponse.emit('sendHttpResponse');
 					}
 				})
 			}
 		})
 	}
+    // fetch from table
+    else if (httpRequest.url == '/fetch-table') {
+        const conn = mysql.createConnection({
+            host:'localhost',
+            user:'root',
+            password:'',
+            database:'test'
+        });
+
+        conn.connect((connErr)=>{
+            if (connErr) throw connErr;
+            conn.query('SELECT * FROM `players`',(queryErr,result,fields)=>{
+                if (queryErr) {
+                    Httpresponse.write(queryErr.sqlMessage);
+                    endResponse.emit('sendHttpResponse');
+                } else {
+                    console.log('result of mysql',result);
+                    Httpresponse.write('first result of table is'+result[0].First_Name);
+                    endResponse.emit('sendHttpResponse');
+                }
+            });
+        });
+    }
     else {
         appUrl="."+appUrl;
         console.log("file "+appUrl);
